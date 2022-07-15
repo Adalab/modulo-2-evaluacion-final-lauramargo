@@ -1,7 +1,7 @@
 'use strict';
 // preguntar a profes
 //xk me salen unoas imagenes con el titulo encima de la img y otros con el titulo debajo
-// no vuelvas a borrar lo del html += de final art y li 
+//probar si me falta otro bucle for of para que me pinte solo lo que busco y no solo "data"
 
 
 //globales
