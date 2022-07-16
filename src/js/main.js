@@ -24,16 +24,7 @@ const renderSeries = () => {
 
 
 };
-//pedir datos del servidor
-/*const showApi = () => {
-    fetch(' https://api.jikan.moe/v4/anime')
 
-        .then((response) => response.json())
-        .then((dataSeries) => {
-            seriesAnime = dataSeries.data;
-            renderSeries();
-        });
-};*/ // que no se muestre hasta dar click*/
 
 
 // eventos
@@ -42,17 +33,25 @@ btnSearch.addEventListener('click', (event) => {
     event.preventDefault();
     const userText = textUser.value;
     fetch(`https://api.jikan.moe/v4/anime?q=${userText}`)
-    fetch(' https://api.jikan.moe/v4/anime')
-
         .then((response) => response.json())
         .then((dataSeries) => {
-            console.log(dataSeries.data);
             seriesAnime = dataSeries.data;
             renderSeries();
         });
+    /*showApi();*/
+    renderSeries();
 });
 
 
+//pedir datos del servidor
+/*const showApi = () => {
+    fetch('https://api.jikan.moe/v4/anime?q=naruto')
+
+        .then((response) => response.json())
+        .then((dataSeries) => {
+            seriesAnime = dataSeries.data;
+            renderSeries();
+        });
+}; // que no se muestre hasta dar click*/
 
 
-/*showApi();*/
