@@ -26,6 +26,7 @@ const renderFavoriteList = () => {
             html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
         }
         html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
+        html += '<button> <i class=" trash fa-solid fa-trash-can"></i></button>'
         html += `</img></li>`;
     }
     favList.innerHTML = html;
@@ -115,7 +116,7 @@ const showApi = () => {
         .then((response) => response.json())
         .then((dataSeries) => {
             seriesAnime = dataSeries.data;
-            localStorage.setItem('data', JSON.stringify(seriesAnime));
+            localStorage.setItem('data', JSON.stringify(favorites));
         });
 }; // que no se muestre hasta dar click*/
 
