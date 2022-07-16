@@ -49,22 +49,22 @@ const renderSeries = () => {
     let html = '';
     let classFavorite = '';
     for (const series of seriesAnime) {
-        const favoriteFoundIndex = favorites.findIndex((favs) => series.mal_id === favs.id);
+        const favoriteFoundIndex = favorites.findIndex((favs) => series.mal_id === favs.mal_id);
 
         if (favoriteFoundIndex !== -1) {
-            classFavorite = 'list--favourite';
+            classFavorite = 'favourite';
         }
         else {
             classFavorite = '';
         }
-        html += `<li class=" list js-fav ${classFavorite}" id= '${series.mal_id}' >`;
+        html += `<li class='js-fav ${classFavorite}' id= '${series.mal_id}' >`;
         if (series.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
             html += `<img src='${series.images.jpg.image_url}'>`;
         }
         else {
             html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
         }
-        html += `<h2>${series.title}</h2>`;
+        html += `<h2 class='${classFavorite}_title'>${series.title}</h2>`;
         html += `</img></li>`;
 
     }

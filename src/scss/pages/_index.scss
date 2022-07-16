@@ -5,29 +5,26 @@
 
 .page {
   display: flex;
+  justify-content: space-evenly;
 
+  .favorites {
+
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .favourite {
+    border: solid 10px greenyellow;
+
+    &_title {
+      color: greenyellow;
+    }
+  }
 
   .results {
 
     flex-direction: column;
     justify-content: right;
 
-
-    &_h2 {}
-
-    &_ulr {
-
-      &--favourite {
-        border: solid 2px greenyellow;
-      }
-    }
-  }
-
-  .favorites {
-
-    flex-direction: column;
-    justify-content: left;
-
-    &_ulf {}
   }
 }
