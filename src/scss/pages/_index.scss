@@ -1,3 +1,33 @@
 * {
+  padding-left: 5px;
   background-color: gainsboro;
+}
+
+.page {
+  display: flex;
+
+
+  .results {
+
+    flex-direction: column;
+    justify-content: right;
+
+
+    &_h2 {}
+
+    &_ulr {
+
+      &--favourite {
+        border: solid 2px greenyellow;
+      }
+    }
+  }
+
+  .favorites {
+
+    flex-direction: column;
+    justify-content: left;
+
+    &_ulf {}
+  }
 }

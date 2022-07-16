@@ -12,26 +12,32 @@
 </head>
 
 <body>
-  <div>
-    <h1>Buscador de series de anime</h1>
-    <form action="">
-      <input class="textUser js-textUser" type="text">
+  <h1>Buscador de series de anime</h1>
+  <form action="">
+    <input class="textUser js-textUser" type="text">
 
-      <button type="submit" class="btnSearch js-btnSearch">Buscar</button>
+    <button type="submit" class="btnSearch js-btnSearch">Buscar</button>
 
-      <button type="reset" class="btnReset js-btnSearch">Reset</button>
-    </form>
-  </div>
-  <div class="containerUl">
-    <ul class="ul js-ul">
-      <!--<li>
+    <button type="reset" class="btnReset js-btnSearch">Reset</button>
+  </form>
+  <div class="page">
+    <div class="results">
+      <h2 class="results_h2">Resultados</h2>
+      <ul class="results_ulr js-results">
+        <!--<li>
         <article>
           <img src="" alt="">
-          <h2></h2>
+          <h3></h3>
         </article>
       </li>-->
-    </ul>
+      </ul>
+    </div>
+    <div class="favorites">
+      <h2>Series favoritas</h2>
+      <ul class="container_ulf js-favorites"></ul>
+    </div>
   </div>
+
 
   <script src="./assets/js/main.js"></script>
 
