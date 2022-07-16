@@ -9,9 +9,29 @@ const textUser = document.querySelector('.js-textUser');
 const btnSearch = document.querySelector('.js-btnSearch');
 const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
+const favList = document.querySelector('.js-favorites');
+
 
 let seriesAnime = [];
 let favorites = [];
+
+const renderFavoriteList = () => {
+    let html = [];
+    for (const eachFavorite of favorites) {
+        html += `<li class='js-fav' id= '${eachFavorite.mal_id}' >`;
+        if (eachFavorite.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
+            html += `<img src='${eachFavorite.images.jpg.image_url}'>`;
+        }
+        else {
+            html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
+        }
+        html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
+        html += `</img></li>`;
+    }
+    favList.innerHTML = html;
+    listenerFav();
+
+};
 
 function handleClick(event) {
     //console.log(event.currentTarget.id);
@@ -34,6 +54,9 @@ function handleClick(event) {
 
     console.log(favorites);
     renderSeries();
+    renderFavoriteList();
+
+
 }
 
 function listenerFav() {
@@ -74,9 +97,6 @@ const renderSeries = () => {
 
 
 
-
-
-
 // event button search (click)
 
 btnSearch.addEventListener('click', (event) => {
@@ -95,8 +115,19 @@ const showApi = () => {
         .then((response) => response.json())
         .then((dataSeries) => {
             seriesAnime = dataSeries.data;
-            renderSeries();
+            localStorage.setItem('data', JSON.stringify(seriesAnime));
         });
 }; // que no se muestre hasta dar click*/
+
+function download() {
+    const downloadLocal = JSON.parse(localStorage.getItem('data'));
+    if (downloadLocal) {
+        favorites = downloadLocal;
+        renderFavoriteList();
+    }
+    else {
+        showApi();
+    }
+}
 
 
