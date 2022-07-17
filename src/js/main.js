@@ -32,6 +32,7 @@ const renderFavoriteList = () => {
     favList.innerHTML = html;
     listenerFav();
 
+
 };
 
 function handleClick(event) {
@@ -53,18 +54,16 @@ function handleClick(event) {
         favorites.splice(favouriteFound, 1);
     }
 
-    console.log(favorites);
+
     renderSeries();
     renderFavoriteList();
-
-
+    localStorage.setItem('data', JSON.stringify(favorites));
 }
 
 function listenerFav() {
     const liFav = document.querySelectorAll('.js-fav');
     for (const li of liFav) {
         li.addEventListener('click', handleClick);
-
     }
 };
 
@@ -116,7 +115,7 @@ const showApi = () => {
         .then((response) => response.json())
         .then((dataSeries) => {
             seriesAnime = dataSeries.data;
-            localStorage.setItem('data', JSON.stringify(favorites));
+
         });
 }; // que no se muestre hasta dar click*/
 
@@ -126,9 +125,7 @@ function download() {
         favorites = downloadLocal;
         renderFavoriteList();
     }
-    else {
-        showApi();
-    }
-}
 
+}
+download();
 
