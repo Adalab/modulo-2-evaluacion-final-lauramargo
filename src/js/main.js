@@ -10,6 +10,8 @@ const btnSearch = document.querySelector('.js-btnSearch');
 const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
 const favList = document.querySelector('.js-favorites');
+const trashBtn = document.querySelector('.js_trash');
+const deleteAllFavs = document.querySelector('.js_deleteFavs');
 
 
 let seriesAnime = [];
@@ -26,8 +28,9 @@ const renderFavoriteList = () => {
             html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
         }
         html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
-        html += '<button> <i class=" trash fa-solid fa-trash-can"></i></button>'
+        html += '<button> <i class=" js_trash fa-solid fa-trash-can"></i></button>';
         html += `</img></li>`;
+
     }
     favList.innerHTML = html;
     listenerFav();
@@ -129,3 +132,31 @@ function download() {
 }
 download();
 
+/*//click delete
+
+trashBtn.addEventListener('click', (event) => {
+
+    //console.log(event.currentTarget.id);
+    const idDelete = event.currentTarget.id;
+    //console.log(typeof idSelected);
+    const idSelectedDelete = parseInt(idDelete);
+    //console.log(newIdSelected);
+
+    const serieFound = seriesAnime.find((series) => series.mal_id === idSelectedDelete);
+    //console.log(serieFound);
+
+    const favouriteFound = favorites.findIndex((favs) => favs.mal_id === idSelectedDelete);
+
+    if (favouriteFound !== -1) {
+        classFavorite = '';
+    }
+
+
+});*/
+/*
+deleteAllFavs.addEventListener('click', deleteFavAll);
+
+function deleteFavAll() {
+    localStorage.removeItem("data");
+}
+deleteFavAll();*/
