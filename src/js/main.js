@@ -141,14 +141,14 @@ const renderSeries = () => {
         else {
             classFavorite = '';
         }
-        html += `<li class='js-fav ${classFavorite}' id= '${series.mal_id}' >`;
+        html += `<li class='js-fav2 ${classFavorite}' id= '${series.mal_id}' >`;
         if (series.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
-            html += `<div class="image-container"><img src='${series.images.jpg.image_url}'>`;
+            html += `<div class="image-container2"><img src='${series.images.jpg.image_url}'class="image2"></div>`;
         }
         else {
             html += `<div class="image-container2"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image2"></div>`;
         }
-        html += `<h2 class='${classFavorite}_title'>${series.title}</h2>`;
+        html += `<h2 class='${classFavorite}_title2'>${series.title}</h2>`;
         html += `</img></li>`;
 
     }
