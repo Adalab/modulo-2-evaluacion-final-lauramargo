@@ -13,32 +13,44 @@
 </head>
 
 <body>
-  <h1>Buscador de series de anime</h1>
-  <form action="">
-    <input class="textUser js-textUser" type="text">
+  <section class="header">
+    <h1 class="header__h1">Buscador de series de anime</h1>
+    <form action="">
+      <input class="header__textUser js-textUser" type="text">
 
-    <button type="submit" class="btnSearch js-btnSearch">Buscar</button>
+      <button type="submit" class="header__btnSearch js-btnSearch">Buscar</button>
 
-    <button type="reset" class="btnReset js-btnSearch">Reset</button>
-  </form>
-  <div class="page">
-    <div class="favorites">
-      <h2 class="favorites_h2">Series favoritas</h2>
-      <ul class="favorites_ulf js-favorites">
-        <!--<li>
-        <article>
-          <img src="" alt="">
-          <h3></h3>
-        </article>
-      </li>-->
-      </ul>
-      <button class="js_deleteFavs">Delete all</button>
+      <button type="reset" class=" header__btnReset js-btnSearch">Reset</button>
+    </form>
+  </section>
+  <section class="main">
+
+    <div class="main__favorites">
+      <h2 class="main__favorites--h2">Series favoritas</h2>
+      <div class="main__favorites--container">
+        <ul class="main__favorites--ulf js-favorites">
+          <!--<li>
+            <article>
+              <img src="" alt="">
+              <h3></h3>
+            </article>
+          </li>-->
+        </ul>
+      </div>
+
+
+      <button class=" main__favorites--trash js_deleteFavs">Delete all</button>
     </div>
-    <div class="results">
-      <h2>Resultados</h2>
-      <ul class="results_ulr js-results"></ul>
+    <div class="main__results">
+      <article class="main__results--art">
+        <h2 class="main__results--h2">Resultados</h2>
+      </article>
+      <ul class="main__results--ulr js-results"></ul>
     </div>
-  </div>
+
+  </section>
+
+
 
 
   <script src="./assets/js/main.js"></script>

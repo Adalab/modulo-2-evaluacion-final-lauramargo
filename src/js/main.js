@@ -1,6 +1,9 @@
 'use strict';
+
+
+
 // preguntar a profes
-//xk me salen unoas imagenes con el titulo encima de la img y otros con el titulo debajo
+//xk tengo que dar dos click  y lo del reset
 
 
 
@@ -10,17 +13,56 @@ const btnSearch = document.querySelector('.js-btnSearch');
 const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
 const favList = document.querySelector('.js-favorites');
-const trashBtn = document.querySelector('.js_trash');
+
 const deleteAllFavs = document.querySelector('.js_deleteFavs');
 
 
 let seriesAnime = [];
 let favorites = [];
 
+function handleDeleteEach(ev) {
+    const iconTrash = parseInt(ev.currentTarget.id);
+    //console.log(iconTrash);
+
+    const newIconFound = favorites.findIndex((idIconF) => idIconF.mal_id === iconTrash);
+
+    if (newIconFound !== -1) {
+        favorites.splice(newIconFound, 1);
+        renderFavoriteList();
+    }
+    /*const serieFound = seriesAnime.find((series) => series.mal_id === newIdSelected);
+    //console.log(serieFound);
+
+    const favouriteFound = favorites.findIndex((favs) => favs.mal_id === newIdSelected);
+
+    if (favouriteFound === -1) {
+        favorites.push(serieFound);
+    }
+    else {
+        favorites.splice(favouriteFound, 1);
+    }
+
+
+    renderSeries();
+    renderFavoriteList();
+    localStorage.setItem('data', JSON.stringify(favorites));*/
+
+}
+
+
+const listenerTrash = () => {
+    const trashBtn = document.querySelectorAll('.js_trash');
+    for (const eachTrashBtn of trashBtn) {
+        eachTrashBtn.addEventListener('click', handleDeleteEach);
+    }
+
+};
+
+
 const renderFavoriteList = () => {
     let html = [];
     for (const eachFavorite of favorites) {
-        html += `<li class='js-fav' id= '${eachFavorite.mal_id}' >`;
+        html += `<li class='js-favs' id= '${eachFavorite.mal_id}' >`;
         if (eachFavorite.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
             html += `<img src='${eachFavorite.images.jpg.image_url}'>`;
         }
@@ -28,12 +70,12 @@ const renderFavoriteList = () => {
             html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
         }
         html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
-        html += '<button> <i class=" js_trash fa-solid fa-trash-can"></i></button>';
+        html += `<button class=' js_trash' id='${eachFavorite.mal_id}'><i class='  fa-solid fa-trash-can' ></i></button>`;
         html += `</img></li>`;
 
     }
     favList.innerHTML = html;
-    listenerFav();
+    listenerTrash();// este cambiar por listener trash
 
 
 };
@@ -41,15 +83,15 @@ const renderFavoriteList = () => {
 function handleClick(event) {
     //console.log(event.currentTarget.id);
     const idSelected = event.currentTarget.id;
-    //console.log(typeof idSelected);
+    //console.log(typeof idSelected); dice en que elemento hace click
     const newIdSelected = parseInt(idSelected);
-    //console.log(newIdSelected);
+    //console.log(newIdSelected); dice el numero del elemento donde hace click
 
     const serieFound = seriesAnime.find((series) => series.mal_id === newIdSelected);
-    //console.log(serieFound);
+    //console.log(serieFound); de mi array ppal busca el elemento que tenga el numero = al numero que hago click
 
     const favouriteFound = favorites.findIndex((favs) => favs.mal_id === newIdSelected);
-
+    //busca el numero en favoritos que es igual al numero clicado
     if (favouriteFound === -1) {
         favorites.push(serieFound);
     }
@@ -106,8 +148,8 @@ btnSearch.addEventListener('click', (event) => {
     event.preventDefault();
 
     showApi();
-    listenerFav();
-    renderSeries();
+
+
 });
 
 
@@ -118,6 +160,7 @@ const showApi = () => {
         .then((response) => response.json())
         .then((dataSeries) => {
             seriesAnime = dataSeries.data;
+            renderSeries();
 
         });
 }; // que no se muestre hasta dar click*/
@@ -132,31 +175,29 @@ function download() {
 }
 download();
 
+
+
 /*//click delete
 
-trashBtn.addEventListener('click', (event) => {
-
-    //console.log(event.currentTarget.id);
-    const idDelete = event.currentTarget.id;
-    //console.log(typeof idSelected);
-    const idSelectedDelete = parseInt(idDelete);
-    //console.log(newIdSelected);
-
-    const serieFound = seriesAnime.find((series) => series.mal_id === idSelectedDelete);
-    //console.log(serieFound);
-
-    const favouriteFound = favorites.findIndex((favs) => favs.mal_id === idSelectedDelete);
-
-    if (favouriteFound !== -1) {
-        classFavorite = '';
-    }
 
 
-});*/
-/*
-deleteAllFavs.addEventListener('click', deleteFavAll);
 
-function deleteFavAll() {
-    localStorage.removeItem("data");
-}
-deleteFavAll();*/
+});
+function handleDeleteAll(ev) {
+    ev.preventDefault();
+    localStorage.removeItem('data', JSON.stringify(favorites));
+
+};
+
+
+
+deleteAllFavs.addEventListener('click', handleDeleteAll);*/
+
+
+
+
+
+
+
+
+
