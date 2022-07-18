@@ -14,11 +14,42 @@ const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
 const favList = document.querySelector('.js-favorites');
 
-const deleteAllFavs = document.querySelector('.js_deleteFavs');
 
 
 let seriesAnime = [];
 let favorites = [];
+
+const btnResetAll = document.querySelector('.js-btnReset');
+
+function handleResetAll(ev) {
+    ev.preventDefault();
+    favList.innerHTML = '';
+    ul.innerHTML = '';
+    localStorage.removeItem('data', JSON.stringify(favorites));
+    textUser.value = '';
+
+
+
+
+};
+
+
+btnResetAll.addEventListener('click', handleResetAll);
+
+const deleteAllFavs = document.querySelector('.js_deleteFavs');
+
+function handleDeleteAll(ev) {
+    ev.preventDefault();
+    favList.innerHTML = '';
+    if (ul.innerHTML !== '') {
+        ul.classList = ('');
+        renderSeries();
+    }
+};
+
+
+
+deleteAllFavs.addEventListener('click', handleDeleteAll);
 
 function handleDeleteEach(ev) {
     const iconTrash = parseInt(ev.currentTarget.id);
@@ -29,23 +60,8 @@ function handleDeleteEach(ev) {
     if (newIconFound !== -1) {
         favorites.splice(newIconFound, 1);
         renderFavoriteList();
+        localStorage.setItem('data', JSON.stringify(favorites));
     }
-    /*const serieFound = seriesAnime.find((series) => series.mal_id === newIdSelected);
-    //console.log(serieFound);
-
-    const favouriteFound = favorites.findIndex((favs) => favs.mal_id === newIdSelected);
-
-    if (favouriteFound === -1) {
-        favorites.push(serieFound);
-    }
-    else {
-        favorites.splice(favouriteFound, 1);
-    }
-
-
-    renderSeries();
-    renderFavoriteList();
-    localStorage.setItem('data', JSON.stringify(favorites));*/
 
 }
 
@@ -75,7 +91,7 @@ const renderFavoriteList = () => {
 
     }
     favList.innerHTML = html;
-    listenerTrash();// este cambiar por listener trash
+    listenerTrash();
 
 
 };
@@ -163,7 +179,7 @@ const showApi = () => {
             renderSeries();
 
         });
-}; // que no se muestre hasta dar click*/
+};
 
 function download() {
     const downloadLocal = JSON.parse(localStorage.getItem('data'));
@@ -177,21 +193,11 @@ download();
 
 
 
-/*//click delete
+//click delete
 
 
 
 
-});
-function handleDeleteAll(ev) {
-    ev.preventDefault();
-    localStorage.removeItem('data', JSON.stringify(favorites));
-
-};
-
-
-
-deleteAllFavs.addEventListener('click', handleDeleteAll);*/
 
 
 
