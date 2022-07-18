@@ -80,13 +80,13 @@ const renderFavoriteList = () => {
     for (const eachFavorite of favorites) {
         html += `<li class='js-favs' id= '${eachFavorite.mal_id}' >`;
         if (eachFavorite.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
-            html += `<img src='${eachFavorite.images.jpg.image_url}'>`;
+            html += `<div class="image-container"><img src='${eachFavorite.images.jpg.image_url}'class="image"></div>`;
         }
         else {
-            html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
+            html += `<div class="image-container"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image"></div>`;
         }
         html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
-        html += `<button class=' js_trash' id='${eachFavorite.mal_id}'><i class='  fa-solid fa-trash-can' ></i></button>`;
+        html += `<button class=' js_trash' id='${eachFavorite.mal_id}'><i class='trashIcon  fa-solid fa-trash-can' ></i></button>`;
         html += `</img></li>`;
 
     }
@@ -143,10 +143,10 @@ const renderSeries = () => {
         }
         html += `<li class='js-fav ${classFavorite}' id= '${series.mal_id}' >`;
         if (series.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
-            html += `<img src='${series.images.jpg.image_url}'>`;
+            html += `<div class="image-container"><img src='${series.images.jpg.image_url}'>`;
         }
         else {
-            html += `<img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo''>`;
+            html += `<div class="image-container2"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image2"></div>`;
         }
         html += `<h2 class='${classFavorite}_title'>${series.title}</h2>`;
         html += `</img></li>`;

@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buscador de series anime</title>
   <script src="https://kit.fontawesome.com/e62df340f4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&family=Poppins:wght@100;300;800&display=swap">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/favicon.png" />
@@ -15,20 +17,19 @@
 <body>
   <section class="header">
     <h1 class="header__h1">Buscador de series de anime</h1>
-    <form action="">
-      <input class="header__textUser js-textUser" type="text">
+    <form class="header__user" action="">
+      <input class="header__user--text js-textUser" type="text">
 
-      <button type="submit" class="header__btnSearch js-btnSearch">Buscar</button>
+      <button type="submit" class="header__user--btnSearch js-btnSearch">Buscar</button>
 
-      <button type="reset" class=" header__btnReset js-btnReset">Reset</button>
+      <button type="reset" class=" header__user--btnReset js-btnReset">Reset</button>
     </form>
   </section>
   <section class="main">
-
-    <div class="main__favorites">
-      <h2 class="main__favorites--h2">Series favoritas</h2>
-      <div class="main__favorites--container">
-        <ul class="main__favorites--ulf js-favorites">
+    <div class="main1">
+      <h2 class="main1__h2f">Series favoritas</h2>
+      <div class="main1__favorites">
+        <ul class="main1__favorites--ulf js-favorites">
           <!--<li>
             <article>
               <img src="" alt="">
@@ -36,21 +37,16 @@
             </article>
           </li>-->
         </ul>
+        <button class="deleteAll js_deleteFavs">Delete all</button>
       </div>
-      <button class=" main__favorites--trash js_deleteFavs">Delete all</button>
     </div>
-    <div class="main__results">
-      <article class="main__results--art">
-        <h2 class="main__results--h2">Resultados</h2>
-      </article>
-      <ul class="main__results--ulr js-results"></ul>
+    <div class="main2">
+      <h2 class="main2__h2r">Resultados</h2>
+      <div class="main2__results">
+        <ul class="main2__results--ulr js-results"></ul>
+      </div>
     </div>
-
   </section>
-
-
-
-
   <script src="./assets/js/main.js"></script>
 
 </body>
