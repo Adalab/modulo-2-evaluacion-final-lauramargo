@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buscador de series anime</title>
+  <script src="https://kit.fontawesome.com/e62df340f4.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/favicon.png" />
@@ -12,10 +13,48 @@
 </head>
 
 <body>
-  <header></header>
-  <main></main>
-  <footer></footer>
+  <section class="header">
+    <h1 class="header__h1">Buscador de series de anime</h1>
+    <form action="">
+      <input class="header__textUser js-textUser" type="text">
+
+      <button type="submit" class="header__btnSearch js-btnSearch">Buscar</button>
+
+      <button type="reset" class=" header__btnReset js-btnReset">Reset</button>
+    </form>
+  </section>
+  <section class="main">
+
+    <div class="main__favorites">
+      <h2 class="main__favorites--h2">Series favoritas</h2>
+      <div class="main__favorites--container">
+        <ul class="main__favorites--ulf js-favorites">
+          <!--<li>
+            <article>
+              <img src="" alt="">
+              <h3></h3>
+            </article>
+          </li>-->
+        </ul>
+      </div>
+      <button class=" main__favorites--trash js_deleteFavs">Delete all</button>
+    </div>
+    <div class="main__results">
+      <article class="main__results--art">
+        <h2 class="main__results--h2">Resultados</h2>
+      </article>
+      <ul class="main__results--ulr js-results"></ul>
+    </div>
+
+  </section>
+
+
+
+
   <script src="./assets/js/main.js"></script>
+
 </body>
+
+
 
 </html>
