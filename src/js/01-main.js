@@ -1,12 +1,5 @@
 'use strict';
 
-
-
-// preguntar a profes
-//xk tengo que dar dos click  y lo del reset
-
-
-
 //globals
 const textUser = document.querySelector('.js-textUser');
 const btnSearch = document.querySelector('.js-btnSearch');
@@ -27,10 +20,6 @@ function handleResetAll(ev) {
     ul.innerHTML = '';
     localStorage.removeItem('data', JSON.stringify(favorites));
     textUser.value = '';
-
-
-
-
 };
 
 
@@ -53,7 +42,6 @@ deleteAllFavs.addEventListener('click', handleDeleteAll);
 
 function handleDeleteEach(ev) {
     const iconTrash = parseInt(ev.currentTarget.id);
-    //console.log(iconTrash);
 
     const newIconFound = favorites.findIndex((idIconF) => idIconF.mal_id === iconTrash);
 
@@ -62,7 +50,6 @@ function handleDeleteEach(ev) {
         renderFavoriteList();
         localStorage.setItem('data', JSON.stringify(favorites));
     }
-
 }
 
 
@@ -71,7 +58,6 @@ const listenerTrash = () => {
     for (const eachTrashBtn of trashBtn) {
         eachTrashBtn.addEventListener('click', handleDeleteEach);
     }
-
 };
 
 
@@ -88,26 +74,23 @@ const renderFavoriteList = () => {
         html += `<h2 class='_title'>${eachFavorite.title}</h2>`;
         html += `<button class=' js_trash' id='${eachFavorite.mal_id}'><i class='trashIcon  fa-solid fa-trash-can' ></i></button>`;
         html += `</img></li>`;
-
     }
     favList.innerHTML = html;
     listenerTrash();
-
-
 };
 
 function handleClick(event) {
-    //console.log(event.currentTarget.id);
+
     const idSelected = event.currentTarget.id;
-    //console.log(typeof idSelected); dice en que elemento hace click
+
     const newIdSelected = parseInt(idSelected);
-    //console.log(newIdSelected); dice el numero del elemento donde hace click
+
 
     const serieFound = seriesAnime.find((series) => series.mal_id === newIdSelected);
-    //console.log(serieFound); de mi array ppal busca el elemento que tenga el numero = al numero que hago click
+
 
     const favouriteFound = favorites.findIndex((favs) => favs.mal_id === newIdSelected);
-    //busca el numero en favoritos que es igual al numero clicado
+
     if (favouriteFound === -1) {
         favorites.push(serieFound);
     }
@@ -156,18 +139,13 @@ const renderSeries = () => {
     listenerFav();
 };
 
-
-
 // event button search (click)
 
 btnSearch.addEventListener('click', (event) => {
     event.preventDefault();
-
     showApi();
 
-
 });
-
 
 //ask to server 
 const showApi = () => {
@@ -187,23 +165,5 @@ function download() {
         favorites = downloadLocal;
         renderFavoriteList();
     }
-
 }
 download();
-
-
-
-//click delete
-
-
-
-
-
-
-
-
-
-
-
-
-
