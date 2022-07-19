@@ -6,19 +6,28 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.body {
+  background-color: rgb(87, 85, 85);
+  margin: 20px;
+
+}
+
 .header {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  background-color: rgb(87, 85, 85);
+
+
 
   &__h1 {
     color: rgb(135, 233, 135);
     margin-bottom: 10px;
+    width: 50%;
   }
 
   &__user {
     margin-bottom: 20px;
+    width: 50%;
 
     &--text {
       border-radius: 5px;
@@ -36,6 +45,7 @@
       color: antiquewhite;
       background-color: rgb(135, 233, 135);
       padding: 5px;
+      margin-top: 10px;
     }
 
     &--btnReset {
@@ -44,6 +54,7 @@
       color: antiquewhite;
       background-color: rgb(135, 233, 135);
       padding: 5px;
+      margin-top: 10px;
     }
 
   }
@@ -52,19 +63,16 @@
 
 
 .main {
-  background-color: rgb(87, 85, 85);
+
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 10px;
-  width: 100%;
-
 
 
 
   .main1 {
+    min-width: 40%;
 
-    width: 30%;
 
     &__h2f {
       text-align: center;
@@ -81,12 +89,11 @@
       border-radius: 10px;
 
 
-
-
       &--ulf {
         display: flex;
         flex-direction: column;
         margin: 10px;
+        width: 100%;
 
         .js-favs {
           display: flex;
@@ -96,9 +103,10 @@
 
           .image-container {
 
-            min-width: 30px;
-            max-width: 50px;
+            min-width: 80px;
+            max-width: 80px;
             margin-right: 10px;
+            width: 30%;
           }
 
           .image {
@@ -107,6 +115,8 @@
 
           ._title {
             color: palevioletred;
+            width: 50%;
+            width: 10ch;
           }
 
           .js_trash {
@@ -114,6 +124,8 @@
             border-radius: 50%;
             border: solid 3px rgb(249, 247, 247);
             margin: 10px;
+
+
           }
 
           .trashIcon {
@@ -123,6 +135,7 @@
             text-align: center;
             padding: 5px;
             margin: 10px;
+
           }
         }
       }
@@ -143,7 +156,7 @@
 
 
   .main2 {
-    width: 60%;
+    min-width: 60%;
 
 
     &__h2r {
@@ -158,44 +171,44 @@
       flex-direction: row;
       border: solid 10px rgb(163, 17, 65);
       border-radius: 10px;
-      max-width: 550px;
-
-
-
-
+      text-align: center;
+      justify-content: center;
+      align-items: center;
 
       &--ulr {
         display: flex;
         flex-direction: row;
         text-align: center;
         flex-wrap: wrap;
-
-
-
-
+        width: 100%;
+        justify-content: center;
+        text-align: center;
 
         .js-favs {
           display: flex;
           flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          width: 40%;
+          width: 30%;
 
-
-          .image-container {
-            width: 50px;
-
+          .image-container2 {
+            margin-right: 10px;
+            width: 30%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
           }
 
-          .image {
+          .image2 {
             width: 100%;
           }
-
-          ._title {
-            color: antiquewhite;
-          }
         }
+
+        ._title2 {
+          color: antiquewhite;
+          width: 20ch;
+
+
+        }
+
       }
     }
   }
@@ -204,11 +217,19 @@
 .favourite {
   border: solid 10px greenyellow;
 
-  &_title {
+  &_title2 {
     color: greenyellow;
+    width: 20ch;
+
   }
 }
 
-@media all and(min-width:900px) {}
+@media all and(min-width:700px) {
+  .js-favs {
+    display: flex;
+    flex-direction: row;
+
+  }
+}
 
 @media all and(min-width:1728px) {}

@@ -2,19 +2,12 @@
 
 
 
-// preguntar a profes
-//xk tengo que dar dos click  y lo del reset
-
-
-
 //globals
 const textUser = document.querySelector('.js-textUser');
 const btnSearch = document.querySelector('.js-btnSearch');
 const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
 const favList = document.querySelector('.js-favorites');
-
-
 
 let seriesAnime = [];
 let favorites = [];
@@ -27,9 +20,6 @@ function handleResetAll(ev) {
     ul.innerHTML = '';
     localStorage.removeItem('data', JSON.stringify(favorites));
     textUser.value = '';
-
-
-
 
 };
 
@@ -48,12 +38,10 @@ function handleDeleteAll(ev) {
 };
 
 
-
 deleteAllFavs.addEventListener('click', handleDeleteAll);
 
 function handleDeleteEach(ev) {
     const iconTrash = parseInt(ev.currentTarget.id);
-    //console.log(iconTrash);
 
     const newIconFound = favorites.findIndex((idIconF) => idIconF.mal_id === iconTrash);
 
@@ -97,17 +85,14 @@ const renderFavoriteList = () => {
 };
 
 function handleClick(event) {
-    //console.log(event.currentTarget.id);
+
     const idSelected = event.currentTarget.id;
-    //console.log(typeof idSelected); dice en que elemento hace click
+
     const newIdSelected = parseInt(idSelected);
-    //console.log(newIdSelected); dice el numero del elemento donde hace click
 
     const serieFound = seriesAnime.find((series) => series.mal_id === newIdSelected);
-    //console.log(serieFound); de mi array ppal busca el elemento que tenga el numero = al numero que hago click
 
     const favouriteFound = favorites.findIndex((favs) => favs.mal_id === newIdSelected);
-    //busca el numero en favoritos que es igual al numero clicado
     if (favouriteFound === -1) {
         favorites.push(serieFound);
     }
@@ -143,12 +128,12 @@ const renderSeries = () => {
         }
         html += `<li class='js-fav ${classFavorite}' id= '${series.mal_id}' >`;
         if (series.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
-            html += `<div class="image-container"><img src='${series.images.jpg.image_url}'class="image"></div>`;
+            html += `<div class="image-container2"><img src='${series.images.jpg.image_url}'class="image2"></div>`;
         }
         else {
-            html += `<div class="image-container"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image"></div>`;
+            html += `<div class="image-container2"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image2"></div>`;
         }
-        html += `<h2 class='${classFavorite}_title'>${series.title}</h2>`;
+        html += `<h2 class='${classFavorite}_title2'>${series.title}</h2>`;
         html += `</img></li>`;
 
     }
