@@ -7,38 +7,8 @@ const btnReset = document.querySelector('.js-btnReset');
 const ul = document.querySelector('.js-results');
 const favList = document.querySelector('.js-favorites');
 
-
-
 let seriesAnime = [];
 let favorites = [];
-
-const btnResetAll = document.querySelector('.js-btnReset');
-
-function handleResetAll(ev) {
-    ev.preventDefault();
-    favList.innerHTML = '';
-    ul.innerHTML = '';
-    localStorage.removeItem('data', JSON.stringify(favorites));
-    textUser.value = '';
-};
-
-
-btnResetAll.addEventListener('click', handleResetAll);
-
-const deleteAllFavs = document.querySelector('.js_deleteFavs');
-
-function handleDeleteAll(ev) {
-    ev.preventDefault();
-    favList.innerHTML = '';
-    if (ul.innerHTML !== '') {
-        ul.classList = ('');
-        renderSeries();
-    }
-};
-
-
-
-deleteAllFavs.addEventListener('click', handleDeleteAll);
 
 function handleDeleteEach(ev) {
     const iconTrash = parseInt(ev.currentTarget.id);
@@ -52,14 +22,12 @@ function handleDeleteEach(ev) {
     }
 }
 
-
 const listenerTrash = () => {
     const trashBtn = document.querySelectorAll('.js_trash');
     for (const eachTrashBtn of trashBtn) {
         eachTrashBtn.addEventListener('click', handleDeleteEach);
     }
 };
-
 
 const renderFavoriteList = () => {
     let html = [];
@@ -98,7 +66,6 @@ function handleClick(event) {
         favorites.splice(favouriteFound, 1);
     }
 
-
     renderSeries();
     renderFavoriteList();
     localStorage.setItem('data', JSON.stringify(favorites));
@@ -109,34 +76,6 @@ function listenerFav() {
     for (const li of liFav) {
         li.addEventListener('click', handleClick);
     }
-};
-
-// render API
-const renderSeries = () => {
-    let html = '';
-    let classFavorite = '';
-    for (const series of seriesAnime) {
-        const favoriteFoundIndex = favorites.findIndex((favs) => series.mal_id === favs.mal_id);
-
-        if (favoriteFoundIndex !== -1) {
-            classFavorite = 'favourite';
-        }
-        else {
-            classFavorite = '';
-        }
-        html += `<li class='js-fav ${classFavorite}' id= '${series.mal_id}' >`;
-        if (series.images.jpg.image_url !== 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
-            html += `<div class="image-container2"><img src='${series.images.jpg.image_url}'class="image2"></div>`;
-        }
-        else {
-            html += `<div class="image-container2"><img src='https://via.placeholder.com/210x295/ffffff/666666/?text=no-photo'class="image2"></div>`;
-        }
-        html += `<h2 class='${classFavorite}_title2'>${series.title}</h2>`;
-        html += `</img></li>`;
-
-    }
-    ul.innerHTML = html;
-    listenerFav();
 };
 
 // event button search (click)
