@@ -149,33 +149,34 @@
       flex-direction: row;
       border: solid 10px rgb(163, 17, 65);
       border-radius: 10px;
-      max-width: 260px;
+      max-width: 550px;
 
 
       &--ulr {
         display: flex;
         flex-direction: row;
+        text-align: center;
+        flex-wrap: wrap;
 
 
 
-        .js-favs2 {
+        .js-favs {
           display: flex;
           flex-direction: row;
           align-items: center;
           text-align: center;
 
-          .image-container2 {
-            min-width: 10px;
-            max-width: 50px;
-            flex-wrap: wrap;
+
+          .image-container {
+            width: 50px;
+
           }
 
-          .image2 {
+          .image {
             width: 100%;
-
           }
 
-          ._title2 {
+          ._title {
             color: antiquewhite;
           }
         }
