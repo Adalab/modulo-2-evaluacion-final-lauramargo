@@ -97,16 +97,21 @@
 
         .js-favs {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
-          text-align: center;
+
+          @media all and(min-width:700px) {
+            flex-direction: row;
+
+          }
+
 
           .image-container {
 
             min-width: 80px;
             max-width: 80px;
             margin-right: 10px;
-            width: 30%;
+
           }
 
           .image {
@@ -115,8 +120,8 @@
 
           ._title {
             color: palevioletred;
-            width: 50%;
-            width: 10ch;
+
+
           }
 
           .js_trash {
@@ -223,13 +228,3 @@
 
   }
 }
-
-@media all and(min-width:700px) {
-  .js-favs {
-    display: flex;
-    flex-direction: row;
-
-  }
-}
-
-@media all and(min-width:1728px) {}
