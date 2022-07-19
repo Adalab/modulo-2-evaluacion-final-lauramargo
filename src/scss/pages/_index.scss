@@ -7,7 +7,7 @@
 }
 
 .body {
-  background-color: rgb(87, 85, 85);
+  background-color: black;
   margin: 20px;
 
 }
@@ -20,9 +20,10 @@
 
 
   &__h1 {
-    color: rgb(135, 233, 135);
+    color: rgb(152, 54, 184);
     margin-bottom: 10px;
     width: 50%;
+    font-size: 25px;
   }
 
   &__user {
@@ -31,9 +32,9 @@
 
     &--text {
       border-radius: 5px;
-      border-color: rgb(135, 233, 135);
+      border-color: white;
       color: antiquewhite;
-      background-color: rgb(135, 233, 135);
+      background-color: rgb(83, 23, 103);
       padding: 5px;
       margin-right: 10px;
 
@@ -41,18 +42,18 @@
 
     &--btnSearch {
       border-radius: 5px;
-      border-color: rgb(135, 233, 135);
+      border-color: white;
       color: antiquewhite;
-      background-color: rgb(135, 233, 135);
+      background-color: rgb(83, 23, 103);
       padding: 5px;
       margin-top: 10px;
     }
 
     &--btnReset {
       border-radius: 5px;
-      border-color: rgb(135, 233, 135);
+      border-color: white;
       color: antiquewhite;
-      background-color: rgb(135, 233, 135);
+      background-color: rgb(83, 23, 103);
       padding: 5px;
       margin-top: 10px;
     }
@@ -79,6 +80,7 @@
       color: antiquewhite;
       background-color: palevioletred;
       border-radius: 10px;
+      border: solid 2px white;
 
     }
 
@@ -169,6 +171,7 @@
       color: antiquewhite;
       background-color: rgb(163, 17, 65);
       border-radius: 10px;
+      border: solid 2px white;
     }
 
     &__results {
@@ -192,18 +195,20 @@
         .js-favs {
           display: flex;
           flex-direction: row;
-          width: 30%;
+
+
 
           .image-container2 {
             margin-right: 10px;
-            width: 30%;
+
             justify-content: center;
             align-items: center;
             text-align: center;
+
           }
 
           .image2 {
-            width: 100%;
+            width: 50%;
           }
         }
 
@@ -220,10 +225,25 @@
 }
 
 .favourite {
-  border: solid 10px greenyellow;
+  border: solid 10px rgb(255, 47, 213);
+  border-radius: 10px;
+
+
+  .image-container {
+    margin-right: 10px;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .image {
+    width: 50%;
+  }
 
   &_title2 {
-    color: greenyellow;
+    color: rgb(255, 47, 213);
     width: 20ch;
 
   }
